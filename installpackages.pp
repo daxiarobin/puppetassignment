@@ -9,17 +9,17 @@ class installpackages {
      ensure => running,
      enable => true,
      require => Package['openssh-server'],
-     subscribe => File['/etc/init.d/sshd'],
      
   }
   
-  file {'/etc/init.d/sshd':
-    ensure => file,
-    owner => root,
-    group => root,
-    mode => '0755',
-
-  }
+   file { 'sshdconfig':
+        name => '/etc/ssh/sshd_config',
+        owner => root,
+        group => root,
+        mode => '644',
+        source => 'puppet:///modules/sshd/sshd_config',
+        require => Package['openssh-server'],
+   }
 
 
 }
