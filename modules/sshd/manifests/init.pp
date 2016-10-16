@@ -5,19 +5,8 @@ class sshd {
      before => Service['sshd'],
    }
 
-   file_line { 'change1':
-        path  => '/etc/puppetlabs/code/environments/production/modules/sshd/files/sshd_config',
-        line  => 'PasswordAuthentication yes',
-        match => '^PasswordAuthentication\s+no',
-   }
-
-   file_line { 'change2':
-        path  => '/etc/puppetlabs/code/environments/production/modules/sshd/files/sshd_config',
-        line  => 'UsePAM yes',
-        match => '^UsePAM\s+no',
-   }   
   
-   file_line { 'change3':
+   file_line { 'change1':
         path  => '/etc/puppetlabs/code/environments/production/modules/sshd/files/sshd_config',
         line  => '#PermitRootLogin yes',
         match => '^PermitRootLogin yes',
