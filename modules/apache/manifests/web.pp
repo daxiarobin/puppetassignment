@@ -7,6 +7,6 @@ define apache::web (
     ensure => file,
     content => "<h1>Hello my Student number is $studentnumber</h1>",
     mode    => '0664',
-  }  
+  }
 
 }
