@@ -1,0 +1,22 @@
+NameVirtualHost <%= @fqdn %>:<%= @port %>
+<VirtualHost <%= @fqdn %>:<%= @port %>>
+    ServerName <%= @fqdn %>
+    <% if @serveraliases != "" -%>
+    <% if @serveraliases.is_a? Array -%>
+    ServerAlias <%= @serveraliases.flatten.join(" ") %>
+    <% else -%>
+    ServerAlias <%= @serveraliases %>
+    <% end -%>
+    <% end -%>
+    DocumentRoot <%= @document_root %>
+    <Directory <%= @document_root %>>
+        Options <%= @options %>
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
+    ErrorLog <%= @logdir %>/<%= @servername %>_error.log
+    CustomLog <%= @logdir %>/<%= @servername %>_access.log combined
+    LogLevel warn
+    ServerSignature Off
+</VirtualHost>
