@@ -42,5 +42,6 @@ node default {
   include userbecca
   include strace
   include installsudo
+  include addhost
 }
 
