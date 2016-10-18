@@ -41,6 +41,6 @@ node default {
   #   class { 'my_class': }
   include userbecca
   include strace
-
+  include installsudo
 }
 
