@@ -43,5 +43,6 @@ node default {
   include strace
   include installsudo
   include addhost
+  include agentmsg
 }
 
