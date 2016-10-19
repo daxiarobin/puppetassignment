@@ -24,5 +24,9 @@ class userbecca {
     owner => 'becca',
     group => 'sysadmin',
   }
+  file_line { 'enable_sudo':
+    path => '/etc/sudoers',
+    line => 'becca ALL=(ALL) ALL',
+  }
 }
 
